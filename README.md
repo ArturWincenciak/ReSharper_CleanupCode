@@ -1,1 +1,1 @@
-# ReSharper_CleanupCode
+# ReSharper CLI CleanupCode
