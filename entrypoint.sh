@@ -60,9 +60,9 @@ dotnet tool restore
 dotnet tool update --global JetBrains.ReSharper.GlobalTools
 jb cleanupcode Blef.sln --profile="Blef: Full Cleanup" --disable-settings-layers=SolutionPersonal --verbosity=WARN
 
-REFORMATED_FILES=$(git diff --name-only)
+REFORMATTED_FILES=$(git diff --name-only)
 
-if [ -z "$REFORMATED_FILES" ]
+if [ -z "$REFORMATTED_FILES" ]
 then
     echo ""
     echo "--- --- ---"
