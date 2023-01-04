@@ -1,0 +1,23 @@
+# action.yml
+name: 'Teo Vincent Hello World'
+description: 'Greet someone and record the time'
+author: 'Teo Vincent Artur Wincenciak'
+branding:
+  icon: 'terminal'
+  color: 'purple'
+inputs:
+  who_to_greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+  some_second_arg:
+    description: 'Second argument'
+    default: 'Default value of second argument'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
