@@ -14,7 +14,7 @@ inputs:
     description: 'TBD'
     required: false
     default: 'yes'
-  jb_cleanupcode_arg:
+  jb_cleanup_code_arg:
     description: 'TBD'
     required: false
     default: '--disable-settings-layers=SolutionPersonal --verbosity=WARN'
@@ -36,3 +36,7 @@ runs:
   args:
     - ${{ inputs.fail_on_reformat_needed }}
     - ${{ inputs.auto_commit }}
+    - ${{ inputs.jb_cleanup_code_arg }}
+    - ${{ inputs.commit_message }}
+    - ${{ inputs.commit_creator_email }}
+    - ${{ inputs.commit_creator_name }}

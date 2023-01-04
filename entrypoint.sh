@@ -62,7 +62,7 @@ echo ""
 
 dotnet tool restore
 dotnet tool update --global JetBrains.ReSharper.GlobalTools
-jb cleanupcode Blef.sln "$INPUT_JB_CLEANUPCODE_ARG"
+jb cleanupcode Blef.sln "$INPUT_JB_CLEANUP_CODE_ARG"
 
 REFORMATTED_FILES=$(git diff --name-only)
 
