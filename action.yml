@@ -18,9 +18,6 @@ inputs:
     description: 'DBD'
     required: false
     default: '--disable-settings-layers=SolutionPersonal --verbosity=WARN'
-outputs:
-  status:
-    description: 'DBD'
 runs:
   using: 'docker'
   image: 'Dockerfile'
