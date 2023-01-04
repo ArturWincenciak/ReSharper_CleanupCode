@@ -9,8 +9,9 @@ echo ""
 echo "--- --- ---"
 echo "Alright GitHub Action Cleanup Code Command-Line Tool"
 echo "Default settings:"
-echo "- fail on re-format needed (-f): '$INPUT_FAIL_ON_REFORMAT_NEEDED'"
-echo "- auto commit re-formatted code (-a): '$AUTO_COMMIT'"
+echo "- Fail on re-format needed: '$INPUT_FAIL_ON_REFORMAT_NEEDED'"
+echo "- Auto commit re-formatted code: '$AUTO_COMMIT'"
+echo "- ReSharper CLI CleanupCode arguments: '$INPUT_JB_CLEANUPCODE_ARG'"
 echo "--- --- ---"
 echo ""
 
@@ -58,7 +59,7 @@ echo ""
 
 dotnet tool restore
 dotnet tool update --global JetBrains.ReSharper.GlobalTools
-jb cleanupcode Blef.sln --profile="Blef: Full Cleanup" --disable-settings-layers=SolutionPersonal --verbosity=WARN
+jb cleanupcode Blef.sln "$INPUT_JB_CLEANUPCODE_ARG"
 
 REFORMATTED_FILES=$(git diff --name-only)
 
