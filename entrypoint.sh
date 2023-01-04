@@ -5,38 +5,20 @@ SUCCESS=0
 INVALID_ARGUMENT_ERROR=1
 EXIT_WITH_FAST_FAIL=2
 
-# Default arguments' values
-FAIL_ON_REFORMAT_NEEDED=no
-AUTO_COMMIT=yes
-
 echo ""
 echo "--- --- ---"
 echo "Alright GitHub Action Cleanup Code Command-Line Tool"
 echo "Default settings:"
-echo "- fail on re-format needed (-f): '$FAIL_ON_REFORMAT_NEEDED'"
+echo "- fail on re-format needed (-f): '$INPUT_FAIL_ON_REFORMAT_NEEDED'"
 echo "- auto commit re-formatted code (-a): '$AUTO_COMMIT'"
 echo "--- --- ---"
 echo ""
 
-while getopts f:a: flag
-do
-    case "${flag}" in
-        f) FAIL_ON_REFORMAT_NEEDED=${OPTARG};;
-        a) AUTO_COMMIT=${OPTARG};;
-        *) echo ""
-           echo "--- --- ---"
-           echo "Invalid argument's flag is not handled"
-           echo "--- --- ---"
-           echo ""
-           exit $INVALID_ARGUMENT_ERROR ;;
-    esac
-done
-
-if [ $FAIL_ON_REFORMAT_NEEDED != "yes" ] && [ $FAIL_ON_REFORMAT_NEEDED != "no" ]
+if [ $INPUT_FAIL_ON_REFORMAT_NEEDED != "yes" ] && [ $INPUT_FAIL_ON_REFORMAT_NEEDED != "no" ]
 then
     echo ""
     echo "--- --- ---"
-    echo "INVALID ARGUMENT OF '-f' equals '$FAIL_ON_REFORMAT_NEEDED'"
+    echo "INVALID ARGUMENT OF '-f' equals '$INPUT_FAIL_ON_REFORMAT_NEEDED'"
     echo "Set 'yes' or 'no' or omit to use default equals 'no'"
     echo "--- --- ---"
     echo ""
@@ -57,9 +39,9 @@ fi
 echo ""
 echo "--- --- ---"
 echo "Your setup:"
-echo "- fail on re-format needed: '$FAIL_ON_REFORMAT_NEEDED'"
+echo "- fail on re-format needed: '$INPUT_FAIL_ON_REFORMAT_NEEDED'"
 echo "- auto commit re-formatted code: '$AUTO_COMMIT'"
-if [ $FAIL_ON_REFORMAT_NEEDED = "yes" ] && [ $AUTO_COMMIT = "yes" ]
+if [ $INPUT_FAIL_ON_REFORMAT_NEEDED = "yes" ] && [ $AUTO_COMMIT = "yes" ]
 then
     echo "NOTICE: you have set that the execution will fast fail on re-format needed"
     echo "NOTICE: auto commit will not be executed because the execution will terminate with fail when re-format is needed"
@@ -90,7 +72,7 @@ then
     exit $SUCCESS
 fi
 
-if [ $FAIL_ON_REFORMAT_NEEDED = "yes" ]
+if [ $INPUT_FAIL_ON_REFORMAT_NEEDED = "yes" ]
 then
     echo ""
     echo "--- --- ---"
