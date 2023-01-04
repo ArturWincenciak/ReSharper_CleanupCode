@@ -25,11 +25,11 @@ then
     exit $INVALID_ARGUMENT_ERROR
 fi
 
-if [ $AUTO_COMMIT != "yes" ] && [ $AUTO_COMMIT != "no" ]
+if [ $AUTO_COMMIT != "yes" ] && [ $INPUT_AUTO_COMMIT != "no" ]
 then
     echo ""
     echo "--- --- ---"
-    echo "INVALID ARGUMENT OF '-a' equals '$AUTO_COMMIT'"
+    echo "INVALID ARGUMENT OF '-a' equals '$INPUT_AUTO_COMMIT'"
     echo "Set 'yes' or 'no' or omit to use default equals 'no'"
     echo "--- --- ---"
     echo ""
@@ -40,8 +40,8 @@ echo ""
 echo "--- --- ---"
 echo "Your setup:"
 echo "- fail on re-format needed: '$INPUT_FAIL_ON_REFORMAT_NEEDED'"
-echo "- auto commit re-formatted code: '$AUTO_COMMIT'"
-if [ $INPUT_FAIL_ON_REFORMAT_NEEDED = "yes" ] && [ $AUTO_COMMIT = "yes" ]
+echo "- auto commit re-formatted code: '$INPUT_AUTO_COMMIT'"
+if [ $INPUT_FAIL_ON_REFORMAT_NEEDED = "yes" ] && [ $INPUT_AUTO_COMMIT = "yes" ]
 then
     echo "NOTICE: you have set that the execution will fast fail on re-format needed"
     echo "NOTICE: auto commit will not be executed because the execution will terminate with fail when re-format is needed"
@@ -82,7 +82,7 @@ then
     exit $EXIT_WITH_FAST_FAIL
 fi
 
-if [ $AUTO_COMMIT = "no" ]
+if [ $INPUT_AUTO_COMMIT = "no" ]
 then
     echo ""
     echo "--- --- ---"
