@@ -1,23 +1,25 @@
 # action.yml
-name: 'Teo Vincent Hello World'
-description: 'Greet someone and record the time'
-author: 'Teo Vincent Artur Wincenciak'
+name: 'ReSharper CLI CleanupCode'
+description: 'TBD'
+author: 'Artur Wincenciak (TeoVincent)'
 branding:
   icon: 'terminal'
   color: 'purple'
 inputs:
-  who_to_greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
-  some_second_arg:
-    description: 'Second argument'
-    default: 'Default value of second argument'
+  fail_on_reformat_needed:
+    description: 'TBD'
+    required: false
+    default: 'no'
+  auto_commit:
+    description: 'DBD'
+    required: false
+    default: 'yes'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  status:
+    description: 'DBD'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.fail_on_reformat_needed }}
+    - ${{ inputs.auto_commit }}
