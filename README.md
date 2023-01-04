@@ -25,6 +25,20 @@ TBD
 - Required: `false`
 - Default:`--disable-settings-layers=SolutionPersonal --verbosity=WARN`
 
+## `commit_creator_email`
+
+TBD
+
+- Required: `false`
+- Default:`cleanupcode@github.action`
+
+## `commit_creator_name`
+
+TBD
+
+- Required: `false`
+- Default:`CleanupCode GitHub Action`
+
 ## Example usage
 
 ```yaml

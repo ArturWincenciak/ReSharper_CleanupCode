@@ -11,13 +11,25 @@ inputs:
     required: false
     default: 'no'
   auto_commit:
-    description: 'DBD'
+    description: 'TBD'
     required: false
     default: 'yes'
   jb_cleanupcode_arg:
-    description: 'DBD'
+    description: 'TBD'
     required: false
     default: '--disable-settings-layers=SolutionPersonal --verbosity=WARN'
+  commit_message:
+    description: 'TBD'
+    required: false
+    default: "Cleanup code"
+  commit_creator_email:
+    description: 'TBD'
+    required: false
+    default: "cleanupcode@github.action"
+  commit_creator_name:
+    description: 'TBD'
+    required: false
+    default: "CleanupCode GitHub Action"
 runs:
   using: 'docker'
   image: 'Dockerfile'
