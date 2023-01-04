@@ -1,21 +1,33 @@
-# Hello world docker action
+# ReSharper CLI CleanupCode 
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+TBD
 
 ## Inputs
 
-## `who-to-greet`
+## `fail_on_reformat_needed`
 
-**Required** The name of the person to greet. Default `"World"`.
+TBD
 
-## Outputs
+- Required: `false`
+- Default:`no`
 
-## `time`
+## `auto_commit`
 
-The time we greeted you.
+TBD
+
+- Required: `false`
+- Default:`yes`
+
+## `jb_cleanupcode_arg`
+
+TBD
+
+- Required: `false`
+- Default:`--disable-settings-layers=SolutionPersonal --verbosity=WARN`
 
 ## Example usage
 
-uses: actions/hello-world-docker-action@v2
-with:
-  who-to-greet: 'Mona the Octocat'
+```yaml
+uses: ArturWincenciak/ReSharper_CleanupCode@v1.0.0
+# TODO
+```
