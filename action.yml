@@ -1,11 +1,11 @@
 # action.yml
-name: 'ReSharper CLI CleanupCode'
-description: 'TBD'
-author: 'Artur Wincenciak (TeoVincent)'
-branding:
-  icon: 'terminal'
-  color: 'purple'
+name: Bash Action
+description: A sample GitHub Action written in Bash
+
 inputs:
+  solution:
+    description: 'TBD'
+    required: true
   fail_on_reformat_needed:
     description: 'TBD'
     required: false
@@ -17,7 +17,7 @@ inputs:
   jb_cleanup_code_arg:
     description: 'TBD'
     required: false
-    default: '--disable-settings-layers=SolutionPersonal --verbosity=WARN'
+    default: '--verbosity=WARN'
   commit_message:
     description: 'TBD'
     required: false
@@ -30,13 +30,10 @@ inputs:
     description: 'TBD'
     required: false
     default: "CleanupCode GitHub Action"
+
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.fail_on_reformat_needed }}
-    - ${{ inputs.auto_commit }}
-    - ${{ inputs.jb_cleanup_code_arg }}
-    - ${{ inputs.commit_message }}
-    - ${{ inputs.commit_creator_email }}
-    - ${{ inputs.commit_creator_name }}
+  using: composite
+  steps:
+    - name: Run Script
+      run: ${GITHUB_ACTION_PATH}/entrypoint.sh "${{ inputs.solution }}" "${{ inputs.fail_on_reformat_needed }}" "${{ inputs.auto_commit }}" "${{ inputs.jb_cleanup_code_arg }}" "${{ inputs.commit_message }}" "${{ inputs.commit_creator_email }}" "${{ inputs.commit_creator_name }}"
+      shell: bash
