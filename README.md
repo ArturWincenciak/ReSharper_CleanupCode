@@ -12,6 +12,12 @@ This is a GitHub Action that allows you to run [ReSharper's CleanupCode Command-
 
 The following input parameters can be passed to the action:
 
+## `solution`
+
+Solution or project file to be cleaned up.
+
+- **Required: `true`**
+
 ## `fail_on_reformat_needed`
 
 Determines whether the action should fail if the code needs to be reformatted.
@@ -30,8 +36,12 @@ Determines whether the action should automatically commit the changes made by th
 
 ## `jb_cleanup_code_arg`
 
-Additional arguments to pass to the ReSharper's CleanupCode Command-Line Tool. Configure the tool with command-line parameters e.g. `--profile="Built-in: Full Cleanup" YourSolution.sln`. [See more here in the specification](https://www.jetbrains.com/help/resharper/CleanupCode.html#command-line-parameters).
+Additional arguments to pass to the ReSharper's CleanupCode Command-Line Tool. Configure the tool with command-line parameters 
+e.g. `--verbosity=INFO --profile=Built-in: Full Cleanup --exclude=**UnitTests/**.*`.
 
+- [See more here in that clear and concise specification](https://www.jetbrains.com/help/resharper/CleanupCode.html#command-line-parameters)
+- **Notice**: Never use quotation marks `"` even if the value contains spaces. The command separator is '--' (two hyphens in a row) and this
+  is enough to split arguments. If you use quotation marks, the behavior is undefined.
 - Required: `false`
 - Default: `--verbosity=WARN`
 
