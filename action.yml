@@ -1,6 +1,10 @@
 # action.yml
-name: Bash Action
-description: A sample GitHub Action written in Bash
+name: ReSharper CLI CleanupCode
+description: Allows you to run ReSharper's CleanupCode Command-Line Tool in order to automatically clean up your code
+author: 'Artur Wincenciak (TeoVincent)'
+branding:
+  icon: 'terminal'
+  color: 'purple'
 
 inputs:
   solution:
