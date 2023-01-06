@@ -21,7 +21,7 @@ inputs:
   commit_message:
     description: 'The commit message to use if auto_commit is set to yes'
     required: false
-    default: "Cleanup code"
+    default: "Clean up code by ReSharper CLI CleanupCode Tool"
   commit_creator_email:
     description: 'The email address to use for the git user who creates the commit if auto_commit is set to yes'
     required: false
@@ -29,7 +29,7 @@ inputs:
   commit_creator_name:
     description: 'The name to use for the git user who creates the commit if auto_commit is set to yes'
     required: false
-    default: "CleanupCode GitHub Action"
+    default: "CleanupCode Action"
 
 runs:
   using: composite
