@@ -4,30 +4,30 @@ description: A sample GitHub Action written in Bash
 
 inputs:
   solution:
-    description: 'TBD'
+    description: 'Solution or project file to be cleaned up'
     required: true
   fail_on_reformat_needed:
-    description: 'TBD'
+    description: 'Determines whether the action should fail if the code needs to be reformatted'
     required: false
     default: 'no'
   auto_commit:
-    description: 'TBD'
+    description: 'Determines whether the action should automatically commit the changes made by the ReSharpers CleanupCode Command-Line Tool'
     required: false
     default: 'yes'
   jb_cleanup_code_arg:
-    description: 'TBD'
+    description: 'Additional arguments to pass to the ReSharpers CleanupCode Command-Line Tool. Configure the tool with command-line parameters e.g. --verbosity=INFO --profile=Built-in: Full Cleanup --exclude=**UnitTests/**.*'
     required: false
     default: '--verbosity=WARN'
   commit_message:
-    description: 'TBD'
+    description: 'The commit message to use if auto_commit is set to yes'
     required: false
     default: "Cleanup code"
   commit_creator_email:
-    description: 'TBD'
+    description: 'The email address to use for the git user who creates the commit if auto_commit is set to yes'
     required: false
     default: "cleanupcode@github.action"
   commit_creator_name:
-    description: 'TBD'
+    description: 'The name to use for the git user who creates the commit if auto_commit is set to yes'
     required: false
     default: "CleanupCode GitHub Action"
 
