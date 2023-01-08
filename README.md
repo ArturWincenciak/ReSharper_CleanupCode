@@ -103,7 +103,7 @@ Commit will be performed with default commit message, git user email and name.
 - default git user email: `cleanupcode@github.action`
 - default git user name: `CleanupCode Action`
 
-You can change commit message, git user email and name
+## Change commit message, git user email and name
 
 ```yaml
 steps:
@@ -116,7 +116,7 @@ steps:
       commit_creator_name: 'Knuth Conway'
 ```
 
-## Interrupt your CI/CD pipeline if clean up detected to be need
+## Interrupt your CI/CD pipeline if Cleanup detected the code needs to be cleaned up
 
 ```yaml
 steps:
@@ -127,8 +127,8 @@ steps:
       fail_on_reformat_needed: 'yes'
 ```
 
-This configuration causes the action to terminate and return an error code upon detection of the need for clean up code.
-This can be useful for interrupting the execution of further steps in the CI/CD pipeline.
+If this setting is enabled, the process will stop and return an error code if it finds that the code needs to be cleaned
+up. This can be helpful for stopping the pipeline from continuing if there are problems with the code.
 
 ## No interrupt and no clean up
 
@@ -145,7 +145,7 @@ steps:
 At times, you may want to disable automatic clean up code and continue with the execution of your CI/CD pipeline, for
 instance, when you need to debug subsequent steps without performing clean up.
 
-## Interrupt pipeline vs Clean up code 
+## Interrupt the pipeline vs Clean up code 
 
 Note that if you set the action to automatically clean up code (which can be very helpful), you risk encountering the
 need to resolve conflicts later if you forget to pull the automatically-committed changes.
@@ -210,8 +210,20 @@ initiated
 
 # Cleanup Code works perfectly with Inspect Code
 
-**To see an example how this can be used and to learn more about it, please refer to the demo project:**
-**[GitHub Action of ReSharper CLI CleanupCode Demo](https://github.com/ArturWincenciak/ReSharper_CleanupCode_Demo/tree/demo_inspect_code#clean-up-code-works-perfectly-with-inspect-code)**
+There are situations where Cleanup Code does not do the entire job for us, but we can still greatly help ourselves and
+speed up ours Code Review process by adding an additional automatic step that performs an inspection of the code and, 
+adds a comments to the submitted Pull Request on our behalf.
+
+Here in that demo project 
+[ReSharper CLI CleanupCode GitHub Action Demo](https://github.com/ArturWincenciak/ReSharper_CleanupCode_Demo#cleanup-code-works-perfectly-with-inspect-code), 
+I show you how to combine [ReSharper CLI CleanupCode](https://github.com/marketplace/actions/resharper-cli-cleanupcode)
+and [ReSharper CLI InspectCode](https://github.com/marketplace/actions/resharper-cli-inspectcode) 
+using [GitHub Action Definition](https://github.com/ArturWincenciak/ReSharper_CleanupCode_Demo/blob/main/.github/workflows/cleanup_code.yml)
+that contains two jobs: `cleanup` and `inspection`.
+
+Refer to 
+[the demo project](https://github.com/ArturWincenciak/ReSharper_CleanupCode_Demo#cleanup-code-works-perfectly-with-inspect-code)
+and gain all the knowledge on how to speed up your daily development process.
 
 ```yaml
 name: ReSharper CLI CleanupCode
@@ -272,6 +284,10 @@ jobs:
           minimumSeverity: notice
           solutionWideAnalysis: true
 ```
-### Used actions:
-- **Marketplace: [ReSharper CLI CleanupCode](https://github.com/marketplace/actions/resharper-cli-cleanupcode)**
-- **Marketplace: [ReSharper CLI InspectCode](https://github.com/marketplace/actions/resharper-cli-inspectcode)**
+
+> _[ReSharper CLI InspectCode](https://github.com/marketplace/actions/resharper-cli-inspectcode) - that one I've found 
+> in the Marketplace and used in the 
+> [demo project](https://github.com/ArturWincenciak/ReSharper_CleanupCode_Demo#cleanup-code-works-perfectly-with-inspect-code), 
+> it was an **inspiration** for me to create my own `ReSharper CLI CleanupCode` the second tool in this toolkit. These two
+tools complement each other well and produce nice results._
+
