@@ -75,12 +75,17 @@ The name to use for the git user who creates the commit if `auto_commit` is set 
 - Required: `false`
 - Default: `CleanupCode GitHub Action`
 
-# Demo project
+# [ReSharper CLI CleanupCode GitHub Action Demo Usage](https://github.com/ArturWincenciak/ReSharper_CleanupCode_Demo)
 
-See and fork that down below demo repository, submit a Pull Request, and observe the action in action.
+In that demo project, you will find all the knowledge you need to effectively start using this action.
 
-#### [GitHub Action of ReSharper CLI CleanupCode Demo](https://github.com/ArturWincenciak/ReSharper_CleanupCode_Demo)
-
+## Try your self demo project
+1. Go to the [demo project](https://github.com/ArturWincenciak/ReSharper_CleanupCode_Demo)
+2. Fork this repo 
+3. Create a Pull Request 
+4. Go to `Actions` and observe the action in action 
+5. Check out history of your repo and see newly created commit
+   
 ## The simplest way to usage
 
 ```yaml
