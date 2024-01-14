@@ -1,4 +1,7 @@
-# ReSharper CLI CleanupCode 
+# ReSharper CLI CleanupCode
+
+> ### Visit the blog post to read more about the context of use cases
+> [Zaoszczędź swój czas, niech kod wyczyści się sam – ReSharper CLI CleanupCode GitHub Action](https://teo-vincent.blog/2023/12/31/zaoszczedz-swoj-czas-niech-kod-wyczysci-sie-sam-resharper-cli-cleanupcode-github-action/)
 
 GitHub Action automatically cleans up your code and creates a commit with the changes in your remote repository.
 
