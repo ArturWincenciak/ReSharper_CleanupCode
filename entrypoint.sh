@@ -81,6 +81,14 @@ done
 
 echo ""
 echo "--- --- ---"
+echo "Restore .NET tool (the JetBrains.ReSharper.GlobalTools)"
+echo "--- --- ---"
+echo ""
+
+dotnet tool restore
+
+echo ""
+echo "--- --- ---"
 echo "Let's get started, keep calm and wait, it may take few moments"
 for arg in "${COMMAND_ARG_ARRAY[@]}"; do
   echo "Command argument: [${arg}]"
@@ -88,9 +96,7 @@ done
 echo "--- --- ---"
 echo ""
 
-dotnet tool restore
-dotnet tool update --global JetBrains.ReSharper.GlobalTools
-jb cleanupcode "${COMMAND_ARG_ARRAY[@]}" "${INPUT_SOLUTION}"
+dotnet jb cleanupcode "${COMMAND_ARG_ARRAY[@]}" "${INPUT_SOLUTION}"
 
 REFORMATTED_FILES=$(git diff --name-only)
 
